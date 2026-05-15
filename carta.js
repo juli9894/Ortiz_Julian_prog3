@@ -22,15 +22,26 @@ class Carta {
 
     createHtmlElement() {
         const div = document.createElement("div");
-
         div.className = "carta-container";
-        
+
         div.innerHTML = `
             <img src="${this.imagen}" alt="${this.code}" style="cursor:pointer">
             <h5>${this.value} of ${this.suit}</h5>
             <p>Código: ${this.code}</p>
+            <button class="btn-guardar">guardar</button>
         `;
 
+        const img = div.querySelector("img");
+        img.onclick = () => {
+            window.open(this.imagen, "_blank");
+        };
+
+        const botonGuardar = div.querySelector(".btn-guardar");
+        botonGuardar.onclick = () => {
+            Carta.guardarCarta(this);
+        };
+
         return div;
+
     }
 }
