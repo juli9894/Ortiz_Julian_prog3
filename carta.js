@@ -61,9 +61,9 @@ class Carta {
             listaGuardados.push(carta);
 
             localStorage.setItem("cartasGuardadas", JSON.stringify(listaGuardados));
-            console.log(`Carta ${carta.code} guardada con éxito.`);
+            console.log(`Carta ${carta.code} Se ha guardado correctamente.`);
         } else {
-            console.log(`La carta ${carta.code} ya se encuentra guardada.`);
+            console.log(`La carta ${carta.code} Repetida.`);
         }
     }
 }
