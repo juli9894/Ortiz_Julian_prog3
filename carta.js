@@ -23,9 +23,11 @@ class Carta {
     createHtmlElement() {
         const div = document.createElement("div");
 
+        div.className = "carta-container";
+        
         div.innerHTML = `
             <img src="${this.imagen}" alt="${this.code}" style="cursor:pointer">
-            <h5>${this.value}</h5> of ${this.suit}</h5>
+            <h5>${this.value} of ${this.suit}</h5>
             <p>Código: ${this.code}</p>
         `;
 
