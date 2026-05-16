@@ -4,6 +4,7 @@ main {
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-template-rows: auto 1fr;
+    background-color: #b7b9be;
 }
 
 header { grid-column: 1 / 3; padding: 20px; }
@@ -23,3 +24,53 @@ nav { grid-column: 1 / 2; grid-row: 2 / 3; }
 
 @media (max-width: 900px) { #cartas { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 550px) { #cartas { grid-template-columns: 1fr; } }
+
+
+.carta-container {
+    background-color: #9b6b6b;
+    border: 2px solid #c1bebe;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carta-container:hover {
+    transform: scale(1.2);
+}
+
+.carta-container h5 {
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.carta-container p {
+    font-weight: bold;
+    color: #ffffff; 
+}
+
+button {
+    background-color: #030b13;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #917d74;
+}
+
+.btn-guardar {
+    background-color: #8d4e29;
+    width: 100%;
+    margin-top: 10px;
+}
