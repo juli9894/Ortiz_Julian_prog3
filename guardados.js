@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     cargarCartasGuardadas();
+
+    const botonOrdenar = document.getElementById("ordenar-code");
+    if (botonOrdenar) {
+        botonOrdenar.onclick = ordenarPorId;
+    }
 });
 
 function cargarCartasGuardadas() {
@@ -24,8 +29,6 @@ function cargarCartasGuardadas() {
     listaGuardados.forEach(cartaObjeto => {
         const cartaString = JSON.stringify(cartaObjeto);
         const nuevaCarta = Carta.createFromJsonString(cartaString);
-
-
         const htmlCarta = nuevaCarta.createHtmlElement();
 
         const boton = htmlCarta.querySelector(".btn-guardar");
@@ -33,4 +36,21 @@ function cargarCartasGuardadas() {
 
         contenedor.appendChild(htmlCarta);
     });
+}
+
+function ordenarPorId() {
+    let datosLocalStorage = localStorage.getItem("cartasGuardadas");
+
+    let listaGuardados = JSON.parse(datosLocalStorage);
+    if (listaGuardados.length === 0) return;
+
+    listaGuardados.sort((cartaA, cartaB) => {
+        if (cartaA.code > cartaB.code) return 1;
+        if (cartaA.code < cartaB.code) return -1;
+        return 0;
+    });
+
+    localStorage.setItem("cartasGuardadas", JSON.stringify(listaGuardados));
+
+    cargarCartasGuardadas();
 }
