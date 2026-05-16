@@ -48,21 +48,7 @@ class Carta {
     static guardarCarta(carta){
         let datosLocalStorage = localStorage.getItem("cartasGuardadas");
 
-        let listaGuardados;
-        if (datosLocalStorage === null) {
-            listaGuardados = [];
-        } else {
-            listaGuardados = JSON.parse(datosLocalStorage); 
-        }
-        
-        const yaExiste = listaGuardados.some(item => item.code === carta.code);
 
-        if (!yaExiste) {
-            listaGuardados.push(carta);
-
-            localStorage.setItem("cartasGuardadas", JSON.stringify(listaGuardados));
-            console.log(`Carta ${carta.code} Se ha guardado correctamente.`);
-        } else {
             console.log(`La carta ${carta.code} Repetida.`);
         }
     }
